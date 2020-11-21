@@ -8,7 +8,7 @@ Este proyecto automatiza estas 2 historais de usuaruio:
 
 Para poder correr el proyecto se debe seguir estos pasos.
 
--Tener instalado eclipse
--Hacer un "git clone https://github.com/marlejo/RAPPI_AutomationTest.git"
--Abrir el proyecto en eclipse
--Correr el proyecto Junit test
+- Tener instalado eclipse
+- Hacer un "git clone https://github.com/marlejo/RAPPI_AutomationTest.git"
+- Abrir el proyecto en eclipse
+- Correr el proyecto Junit test
