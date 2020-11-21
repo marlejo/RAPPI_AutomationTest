@@ -1,6 +1,8 @@
 package com.rappi.automationTesting;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import java.util.concurrent.TimeUnit;
 
@@ -27,7 +29,7 @@ public class CarnivalTest {
 		driver.get("https://www.carnival.com/");
 	}
 	
-	@Test
+	
 	public void userStory1() {
 		
 		WebElement close_cookies = driver.findElement(By.cssSelector("path"));
@@ -62,7 +64,21 @@ public class CarnivalTest {
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
 		WebElement label_results = driver.findElement(By.xpath("/html/body/div[5]/form/div[3]/div/div/div/div/div/ccl-cruise-search/div[3]/ccl-cruise-search-bar/div/div[2]/div[2]/ccl-cruise-search-bar-count-and-options/div/span[2]"));
-		assertEquals("", "7 Results", label_results.getText());
+		assertTrue(label_results.getText().contains("Results"));
+	}
+	
+	@Test
+	public void userStory2() {
+		userStory1();
+		
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+		WebElement learnMore_button = driver.findElement(By.xpath("/html/body/div[5]/form/div[3]/div/div/div/div/div/ccl-cruise-search/div[3]/ccl-view-result-container/div/ccl-view-result-grid/article[1]/ccl-view-result-grid-item/div/div[1]/ccl-view-result-grid-footer/div/div[2]"));
+		learnMore_button.click();
+		
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		
+		assertTrue(driver.getCurrentUrl().contains("itinerary"));
 	}
 
 }
